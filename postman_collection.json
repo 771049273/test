@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "1ce3c653-23d3-44ae-99aa-39fe3b1a0f11",
+		"name": "断言",
+		"description": " 常用断言\n ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "天气预报",
+			"item": [
+				{
+					"name": "查看天气预报返回的数据是否包含北京",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a1ef7280-3b23-4245-97dd-8d7a663fe4b4",
+								"exec": [
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"北京\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://www.weather.com.cn/data/sk/101010100.html",
+							"protocol": "http",
+							"host": [
+								"www",
+								"weather",
+								"com",
+								"cn"
+							],
+							"path": [
+								"data",
+								"sk",
+								"101010100.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "判断响应码是否200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3d430925-0cee-4a73-9cab-cee778c10f35",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://www.weather.com.cn/data/sk/101010100.html",
+							"protocol": "http",
+							"host": [
+								"www",
+								"weather",
+								"com",
+								"cn"
+							],
+							"path": [
+								"data",
+								"sk",
+								"101010100.html"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
